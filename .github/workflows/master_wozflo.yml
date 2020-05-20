@@ -21,7 +21,7 @@ jobs:
         java-version: '11'
 
     - name: Build with Maven
-      run: mvn clean install -f ./wozfloweb/pom.xml
+      run: mvn clean install
 
     - name: Deploy to Azure Web App
       uses: azure/webapps-deploy@v1
@@ -29,4 +29,4 @@ jobs:
         app-name: 'wozflo'
         slot-name: 'production'
         publish-profile: ${{ secrets.AzureAppService_PublishProfile_9196fac7e4c147e8bb5b817351556186 }}
-        package: '${{ github.workspace }}/wozfloweb/target/*.war'
+        package: '${{ github.workspace }}/target/*.war'
